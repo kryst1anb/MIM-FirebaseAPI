@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/background"
+    android:layout_height="match_parent"
+    tools:context=".DetailsActivity">
+
+    <include layout="@layout/toolbar" />
+
+    <View
+        android:id="@+id/SplitLine_hor1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="17dp"
+        android:background="#BFC8C8C8"
+        app:layout_constraintBottom_toTopOf="@+id/details_Year"
+        app:layout_constraintTop_toBottomOf="@+id/details_Author"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/Delete_button"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/delete_book"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_Notes" />
+
+    <TextView
+        android:id="@+id/details_Title"
+        android:layout_width="380dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="75dp"
+        android:editable="false"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/details_Author"
+        android:layout_width="380dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="20dp"
+        android:editable="false"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_Title" />
+
+    <TextView
+        android:id="@+id/details_Year_hint"
+        android:layout_width="115dp"
+        android:layout_height="38dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="40dp"
+        android:gravity="right|center_vertical"
+        android:text="Year:"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_Author" />
+
+    <TextView
+        android:id="@+id/details_Year"
+        android:layout_width="155dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="40dp"
+        android:editable="false"
+        android:gravity="left|center_vertical"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintStart_toEndOf="@+id/details_Year_hint"
+        app:layout_constraintTop_toBottomOf="@+id/details_Author" />
+
+    <TextView
+        android:id="@+id/details_Pages_hint"
+        android:layout_width="115dp"
+        android:layout_height="38dp"
+        android:layout_marginLeft="25dp"
+        android:gravity="right|center_vertical"
+        android:text="@string/pages"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_Year_hint" />
+
+    <TextView
+        android:id="@+id/details_Pages"
+        android:layout_width="155dp"
+        android:layout_height="38dp"
+        android:editable="false"
+        android:gravity="left|center_vertical"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintStart_toEndOf="@+id/details_Pages_hint"
+        app:layout_constraintTop_toBottomOf="@+id/details_Year" />
+
+    <TextView
+        android:id="@+id/details_Isbn_hint"
+        android:layout_width="115dp"
+        android:layout_height="38dp"
+        android:layout_marginLeft="25dp"
+        android:gravity="right|center_vertical"
+        android:text="ISBN:"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_Pages_hint" />
+
+    <TextView
+        android:id="@+id/details_Isbn"
+        android:layout_width="230dp"
+        android:layout_height="38dp"
+        android:editable="false"
+        android:gravity="left|center_vertical"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.365"
+        app:layout_constraintStart_toEndOf="@+id/details_Isbn_hint"
+        app:layout_constraintTop_toBottomOf="@+id/details_Pages" />
+
+    <TextView
+        android:id="@+id/details_language_hint"
+        android:layout_width="115dp"
+        android:layout_height="38dp"
+        android:layout_marginLeft="25dp"
+        android:gravity="right|center_vertical"
+        android:text="Language:"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_Isbn_hint" />
+
+    <TextView
+        android:id="@+id/details_Language"
+        android:layout_width="230dp"
+        android:layout_height="38dp"
+        android:editable="false"
+        android:gravity="left|center_vertical"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.365"
+        app:layout_constraintStart_toEndOf="@+id/details_language_hint"
+        app:layout_constraintTop_toBottomOf="@+id/details_Isbn" />
+
+    <TextView
+        android:id="@+id/details_Notes_hint"
+        android:layout_width="115dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/notes"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_Language" />
+
+    <TextView
+        android:id="@+id/details_Notes"
+        android:layout_width="333dp"
+        android:layout_height="121dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_Notes_hint" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

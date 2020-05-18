@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".SignUpActivity">
+
+    <include layout="@layout/toolbar" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="260dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="106dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/SignUp_mail_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/SignUp_mail_hint"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter your e-mail"
+        app:boxBackgroundMode="outline"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/ic_mail_outline_black_24dp"
+        app:layout_constraintBottom_toTopOf="@+id/SignUp_password_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/SignUp_mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nextFocusForward="@+id/SignUp_password"
+            android:singleLine="true"
+            android:textColor="#d1766a"
+            android:textColorHint="#d1766a"
+            android:textColorLink="#d1766a"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/SignUp_password_hint"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_password"
+        app:endIconMode="password_toggle"
+        app:boxBackgroundMode="outline"
+        app:startIconDrawable="@drawable/ic_vpn_key_black_24dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:helperText="Minimum 6 characters"
+        app:counterEnabled="true"
+        app:errorEnabled="true"
+        app:counterMaxLength="10"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/SignUp_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/SignUp_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:nextFocusForward="@+id/SignUp_button"
+            android:singleLine="true"
+            android:textColor="#d1766a"
+            android:textColorHint="#d1766a"
+            android:textColorLink="#d1766a"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/SignUp_button"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:text="SIGN UP"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SignUp_password_hint" />
+
+    <Button
+        android:id="@+id/BackLogin_button"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="Already have an account"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SignUp_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
