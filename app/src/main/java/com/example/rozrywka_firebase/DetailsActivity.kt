@@ -3,6 +3,7 @@ package com.example.rozrywka_firebase
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -36,6 +37,7 @@ class DetailsActivity : AppCompatActivity() {
         val mPages = intent.getStringExtra("pages")
         val mLanguage = intent.getStringExtra("language")
         val mNotes = intent.getStringExtra("notes")
+        val mRead = intent.getStringExtra("read")!!
 
         details_Title.setText(mTitle)
         details_Author.setText(mAuthor)
@@ -45,18 +47,47 @@ class DetailsActivity : AppCompatActivity() {
         details_Language.setText(mLanguage)
         details_Notes.setText(mNotes)
 
+        if(mRead == "1") {
+            details_Read.setChecked(true)
+        }
+        else{
+            details_Read.setChecked(false)
+        }
+
         val firebase = FirebaseDatabase.getInstance()
-
         databaseReference = firebase.getReference(login[0] + login[1] + login[2])
+        val query: Query = databaseReference.orderByChild("isbn").equalTo(mISBN)
 
-        val search: Query = databaseReference.orderByChild("isbn").equalTo(mISBN)
+        val result: HashMap<String, Any> = HashMap()
+
+        details_Read.setOnClickListener{
+            query.addListenerForSingleValueEvent(object: ValueEventListener {
+                override fun onCancelled(databaseError: DatabaseError){
+                    Toast.makeText(applicationContext, "Database Error", Toast.LENGTH_SHORT).show()
+                }
+                override fun onDataChange(dataSnapshot: DataSnapshot){
+                    for (record in dataSnapshot.children) {
+                        if(record.child("read").getValue().toString() == "1") {
+                            result["read"] = "0"
+                        }
+                        else{
+                            result["read"] = "1"
+                        }
+                        record.ref.updateChildren(result)
+                        break
+                    }
+                    finish()
+                }
+            })
+        }
+
         Delete_button.setOnClickListener{
 
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Warning")
             builder.setMessage("Are you sure to delete this book?")
-            builder.setPositiveButton("YES"){dialog, which ->
-                search.addValueEventListener(object: ValueEventListener {
+            builder.setPositiveButton("YES"){_, _ ->
+                query.addValueEventListener(object: ValueEventListener {
                     override fun onCancelled(databaseError: DatabaseError){
                         Toast.makeText(applicationContext, "Database Error", Toast.LENGTH_SHORT).show()
                     }
@@ -75,6 +106,8 @@ class DetailsActivity : AppCompatActivity() {
 
             dialog.show()
         }
+
+        details_Notes.setMovementMethod(ScrollingMovementMethod())
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -18,7 +18,7 @@ class AddActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add)
-
+        var isRead = ""
         email = intent?.getStringExtra("EMAIL")!!
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.myToolbar)
         setSupportActionBar(toolbar)
@@ -34,12 +34,20 @@ class AddActivity: AppCompatActivity() {
             val book_Pages = bookPages.text.toString()
             val book_Language = bookLanguage.text.toString()
             val book_Notes = bookNotes.text.toString()
-            val book = Book(book_Title, book_Author, book_ISBN, book_Year,book_Pages,book_Language,book_Notes)
+            if(bookRead.isChecked){
+                isRead = "1"
+            }
+            else{
+                isRead = "0"
+            }
+
+            val book = Book(book_Title, book_Author, book_ISBN, book_Year,book_Pages,book_Language,book_Notes, isRead)
 
             val login = email.split("@", ".")
 
             val database = FirebaseDatabase.getInstance()
             val myRef = database.getReference(login[0] + login[1] + login[2])
+
             if(book_Title != "" && book_Title.isNotEmpty()){
                 if(book_Author != "" && book_Author.isNotEmpty()){
                     if(book_ISBN != "" && book_ISBN.isNotEmpty() && (book_ISBN.length == 10 || book_ISBN.length == 13)){

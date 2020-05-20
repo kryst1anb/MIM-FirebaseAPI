@@ -2,6 +2,7 @@ package com.example.rozrywka_firebase
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,11 +47,17 @@ class Adapter (private var bookList: MutableList<Book>, private val context: Con
             intent.putExtra("pages", book.pages)
             intent.putExtra("language", book.language)
             intent.putExtra("notes", book.notes)
+            intent.putExtra("read", book.read)
 
             ContextCompat.startActivity(context, intent,null)
         }
-    }
 
+        if(book.read == "1")
+        {
+            holder.itemView.setBackgroundColor(0x30d1766a)
+        }
+
+    }
     class MyViewHolder(var view: View) : RecyclerView.ViewHolder(view) {
         val bookTitle : TextView = view.findViewById(R.id.BookTitle)
         val bookAuthor : TextView = view.findViewById(R.id.BookAuthor)

@@ -7,5 +7,6 @@ data class Book(
     val year:String = "",
     val pages:String = "",
     val language:String = "",
-    val notes:String = ""
+    val notes:String = "",
+    val read: String = "0"
 )

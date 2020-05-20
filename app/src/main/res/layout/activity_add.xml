@@ -200,22 +200,38 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:nextFocusForward="@+id/buttonAdd"
+            android:nextFocusForward="@+id/bookRead"
             android:textColor="#d1766a"
             android:textColorHint="#d1766a"
             android:textColorLink="#d1766a"
             android:textSize="20sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:id="@+id/buttonAdd"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="300dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="@string/add_book"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bookRead"
+        app:layout_constraintTop_toBottomOf="@+id/bookNotes_hint"
+        app:layout_constraintVertical_bias="0.561" />
+
+    <CheckBox
+        android:id="@+id/bookRead"
+        android:layout_width="121dp"
+        android:layout_height="41dp"
+        android:nextFocusForward="@+id/buttonAdd"
+        android:text="Readed"
+        android:textColor="#6D6D6D"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonAdd"
+        app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bookNotes_hint" />
 

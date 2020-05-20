@@ -160,24 +160,39 @@
         android:id="@+id/details_Notes_hint"
         android:layout_width="115dp"
         android:layout_height="38dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/notes"
         android:textSize="21sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/details_Language" />
+        app:layout_constraintTop_toBottomOf="@+id/details_Read" />
 
     <TextView
         android:id="@+id/details_Notes"
-        android:layout_width="333dp"
+        android:layout_width="match_parent"
         android:layout_height="121dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
+        android:layout_marginEnd="25dp"
+        android:justificationMode="inter_word"
+        android:scrollbars="vertical"
         android:textSize="21sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/details_Notes_hint" />
+
+    <CheckBox
+        android:id="@+id/details_Read"
+        android:layout_width="115dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="10dp"
+        android:text="Readed"
+        android:textColor="#6D6D6D"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_Language" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

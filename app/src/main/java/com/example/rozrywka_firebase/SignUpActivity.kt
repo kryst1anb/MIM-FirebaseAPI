@@ -23,7 +23,6 @@ class SignUpActivity : AppCompatActivity() {
             val email = SignUp_mail.text.toString()
             val password = SignUp_password.text.toString()
 
-
             if(email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(applicationContext, "Please fill all fields!!!", Toast.LENGTH_SHORT).show()
                 SignUp_mail.text?.clear()
@@ -53,6 +52,5 @@ class SignUpActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-
     }
 }
